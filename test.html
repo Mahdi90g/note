@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(231, 137, 168);
+            margin: 0 auto;
+            max-width: 60%;
+
+
+        }
+        .form{
+            align-items: center;
+            text-align: center;
+            padding:20px;
+            padding-right: 55px;
+            margin-top: 10em;
+            border: 1px solid white;
+            width: 25em;
+            height: 25em;
+            border-radius: 20px;
+            
+            background-color: rgb(135, 92, 175);
+
+        }
+        .list{
+            align-items: center;
+            font-size: 20px;
+            justify-content: center;
+            margin-top: 75px;
+        }
+        li{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            border-radius: 20px;
+            padding: 5px;
+            transition: 0.2s;
+            width: 100%;
+            margin-right: 40px;
+            padding-right: 10px;
+            color: white;
+
+        }
+        li:hover{
+            border: 0.5px solid rgb(231, 107, 149);
+            box-shadow: 0 0 0.5em white;
+        }
+        li input{
+            background-color: transparent;
+            border-radius: 10px;
+            width: 70px;
+            height: 40px;
+            border-color:   rgb(231, 137, 168);
+            color: white;
+            transition-duration: 0.2s;
+            cursor: pointer;
+        }
+        li input:hover{
+            background-color:rgb(231, 107, 149) ;
+            box-shadow: 0 0 2em white;
+        }
+        #box{
+            border-radius: 20px;
+            width: 20em;
+            height: 2.5em;
+            background-color: transparent;
+            color: white;
+            font-weight: bold;
+            
+            
+        }
+        #box:focus{
+            box-shadow: 0 0 2em pink;
+        }
+        #add{
+            width: 70px;
+            height: 40px;
+            border-radius: 10px;
+
+        }
+        .apptitle{
+            position: absolute;
+            right: 2em;
+            top: 5em;
+            font-size: 50px;
+            font-weight: bold;
+            font-family: tahoma;
+            color: rgb(43, 10, 161);
+            opacity: 0;
+            filter: blur(15px);
+            transform: translateY(50px);
+            animation: setr 1s linear forwards;
+           
+        }
+        .discribe{
+            position: absolute;
+            right: 2.5em;
+            top: 16em;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: tahoma;
+            color: rgb(43, 10, 161);
+            opacity: 0;
+            filter: blur(15px);
+            transform: translateY(50px);
+            animation: setr 1s linear forwards;
+            animation-delay: 0.3s;
+           
+            
+            
+
+        }
+        .con-btn{
+            border: 2px solid rgb(43, 10, 161);
+            color: rgb(43, 10, 161);
+            width: 80px;
+            padding: 10px;
+            text-align: center;
+            font-size: large;
+            font-weight: bold;
+            border-radius: 10px;
+            position: absolute;
+            right: 7em;
+            top: 20em;
+            cursor: pointer;
+            background-color: transparent;
+            animation: setr 1s linear forwards;
+            opacity: 0;
+            filter: blur(15px);
+            transform: translateY(100px);
+            
+
+        }
+        .con-btn:hover{
+            box-shadow: 0 0 2em white;
+        }
+       
+        @keyframes setr {
+            to{
+                opacity: 1;
+                filter: blur(0px);
+                transform: translateY(-50px);
+            }
+        }
+        @media screen and (max-width:560px){ body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .apptitle{
+            top: 1em;
+        }
+        .discribe{
+            top: 6em;
+        }
+        .con-btn{
+            top: 9em;
+        }
+            
+        }
+            
+        
+       
+    </style>
+</head>
+<body>
+    <div class="form">
+        <ul class="list" id="list">
+            <li>
+                <span>task1</span>
+                <input type="button" value="حذف" class="del">
+            </li>
+            <li>
+                <span>task2</span>
+                <input type="button" value="حذف" class="del">
+            </li>
+            <li>
+                <span>task3</span>
+                <input type="button" value="حذف" class="del">
+            </li>
+        </ul>
+        <input type="text" id="box"> <input type="button" value="اضافه کن" id="add">
+       </div>
+       <div class="apptitle" id="welcome">نوت پد</div>
+       <div class="discribe" id="discribe">یک سینگل پیج اپلیکیشن برای یادداشت</div>
+       <input type="button" class="con-btn" value="فهمیدم">
+
+
+
+
+
+
+       
+    <script>
+       document.querySelector("#list").addEventListener("click" , (e)=>{
+        if(e.target.className=="del"){console.log("hrer");e.target.parentNode.remove()
+    if(document.querySelector("#list").children.length==0){let msg =document.createElement("div"); msg.innerHTML="لیست خالیه";
+document.querySelector("#list").appendChild(msg);msg.id="msg"}}
+       
+       })
+
+       document.querySelector("#add").addEventListener("click" , (e)=>{
+        if(document.querySelector("#msg")){msg.remove();let text =document.querySelector("#box").value;
+        let li=document.createElement("li");
+        let span=document.createElement("span");
+        let input=document.createElement("input");
+        input.type = "button"; input.value ="حذف";input.className="del"
+        span.innerHTML= text;
+        li.appendChild(span); li.appendChild(input); 
+        document.querySelector("#list").appendChild(li);
+        document.querySelector("#box").value = ""}
+        else{let text =document.querySelector("#box").value;
+        let li=document.createElement("li");
+        let span=document.createElement("span");
+        let input=document.createElement("input");
+        input.type = "button"; input.value ="حذف";input.className="del"
+        span.innerHTML= text;
+        li.appendChild(span); li.appendChild(input); 
+        document.querySelector("#list").appendChild(li);
+        document.querySelector("#box").value = ""}
+        if(!document.querySelector("#box").value){return }
+
+       })
+
+       document.querySelector('.con-btn').addEventListener("click",(e)=>{
+        e.target.style.backgroundColor='green'
+        e.target.style.border='none'
+        e.target.style.color='white'
+        alert('واقعا ممنون که فهمیدی. حالا که چی؟')
+
+       })
+
+       
+       
+
+      
+
+       
+    </script>
+</body>
+</html>
